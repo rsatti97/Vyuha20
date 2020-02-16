@@ -5,7 +5,7 @@
 	<title>Vyuha'20 - Home</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="Confpro template project">
+	<meta name="description" content="Vyuha'20 - A National Level Management Meet">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="styles/bootstrap-4.1.2/bootstrap.min.css">
 	<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -16,6 +16,19 @@
 	<link href="plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 	<link rel="stylesheet" type="text/css" href="styles/responsive.css">
+	<script>
+		var countDownDate = new Date("Mar 12, 2020 10:00:00").getTime();
+		var now = new Date().getTime();
+
+		// Find the distance between now and the count down date
+		var distance = countDownDate - now;
+
+		// Time calculations for days, hours, minutes and seconds
+		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+	</script>
 </head>
 
 <body>
@@ -66,15 +79,6 @@
 
 				<div class="header_right ml-auto d-flex flex-row align-items-center justify-content-start">
 
-					<div class="social">
-						<ul class="d-flex flex-row align-items-center justify-content-start">
-							<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
-						</ul>
-					</div>
 					<div class="header_link">
 						<a href="register.html">
 							<span>Register<img src="images/arrow.png" alt=""></span>
@@ -129,7 +133,7 @@
 						<div class="home_container">
 							<div class="container">
 								<div class="row">
-									<div class="col" >
+									<div class="col">
 										<div class="home_content">
 											<div class="home_title">
 												<h1>
@@ -145,8 +149,9 @@
 													</ul>
 												</div>
 											</div>
-											<div class="button button_1 home_button"><a href="register.html"><span>Register Now<img
-															src="images/arrow_2.png" alt=""></span></a></div>
+											<div class="button button_1 home_button"><a
+													href="register.html"><span>Register Now<img src="images/arrow_2.png"
+															alt=""></span></a></div>
 										</div>
 									</div>
 								</div>
@@ -164,8 +169,8 @@
 		<!-- Timer -->
 
 		<div class="timer_section">
-			<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/timer.jpg"
-				data-speed="0.8"></div>
+			<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/timer.jpg">
+			</div>
 			<div class="timer_overlay"></div>
 			<div class="container">
 				<div class="row">
@@ -173,19 +178,60 @@
 						<div class="timer_container">
 							<ul class="timer d-flex flex-row align-items-center justify-content-start">
 								<li class="d-flex flex-column justify-content-start align-items-center">
-									<div id="day" class="timer_num">3</div>
+									<div id="days" class="timer_num">
+										<script>
+											setInterval(() => {
+												var now = new Date().getTime();
+												var distance = countDownDate - now;
+												var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+												document.getElementById("days").innerHTML = days
+											})
+
+										</script>
+									</div>
 									<div class="timer_unit">Days</div>
 								</li>
 								<li class="d-flex flex-column justify-content-start align-items-center">
-									<div id="hour" class="timer_num">00</div>
+									<div id="hours" class="timer_num">
+										<script>
+											setInterval(() => {
+												var now = new Date().getTime();
+												var distance = countDownDate - now;
+												var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+												document.getElementById("hours").innerHTML = hours
+											})
+
+										</script>
+									</div>
 									<div class="timer_unit">Hours</div>
 								</li>
 								<li class="d-flex flex-column justify-content-start align-items-center">
-									<div id="minute" class="timer_num">00</div>
+									<div id="minutes" class="timer_num">
+										<script>
+											setInterval(() => {
+												var now = new Date().getTime();
+												var distance = countDownDate - now;
+												var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+												document.getElementById("minutes").innerHTML = minutes
+											})
+										</script>
+									</div>
 									<div class="timer_unit">Minutes</div>
 								</li>
 								<li class="d-flex flex-column justify-content-start align-items-center">
-									<div id="second" class="timer_num">00</div>
+									<div id="seconds" class="timer_num">
+										<script>
+											setInterval(() => {
+												var now = new Date().getTime();
+
+												// Find the distance between now and the count down date
+												var distance = countDownDate - now;
+												var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+												document.getElementById("seconds").innerHTML = seconds
+											})
+
+										</script>
+									</div>
 									<div class="timer_unit">Seconds</div>
 								</li>
 							</ul>
@@ -269,7 +315,7 @@
 														</li>
 													</ul>
 												</div>
-												 
+
 											</div>
 										</div>
 										<div class="col-lg-5 tab_col">
@@ -304,7 +350,7 @@
 														</li>
 													</ul>
 												</div>
-												 
+
 											</div>
 										</div>
 										<div class="col-lg-6 tab_col">
@@ -338,7 +384,7 @@
 														</li>
 													</ul>
 												</div>
-												 
+
 											</div>
 										</div>
 										<div class="col-lg-5 tab_col">
@@ -374,12 +420,12 @@
 														</li>
 													</ul>
 												</div>
-												 
+
 											</div>
 										</div>
 										<div class="col-lg-5 tab_col">
-												<div class="tab_panel_image"><img src="images/4.jpg" alt=""></div>
-											</div>
+											<div class="tab_panel_image"><img src="images/4.jpg" alt=""></div>
+										</div>
 									</div>
 								</div>
 								<div class="tab_panel">
@@ -410,13 +456,13 @@
 														</li>
 													</ul>
 												</div>
-												 
+
 											</div>
 										</div>
-										
+
 										<div class="col-lg-5 tab_col">
-												<div class="tab_panel_image"><img src="images/5.png" alt=""></div>
-											</div>
+											<div class="tab_panel_image"><img src="images/5.png" alt=""></div>
+										</div>
 									</div>
 								</div>
 								<div class="tab_panel">
@@ -449,13 +495,13 @@
 														</li>
 													</ul>
 												</div>
-												 
+
 											</div>
 										</div>
-										
+
 										<div class="col-lg-5 tab_col">
-												<div class="tab_panel_image"><img src="images/6.jpg" alt=""></div>
-											</div>
+											<div class="tab_panel_image"><img src="images/6.jpg" alt=""></div>
+										</div>
 									</div>
 								</div>
 								<div class="tab_panel">
@@ -482,12 +528,12 @@
 														</li>
 													</ul>
 												</div>
-												 
+
 											</div>
 										</div>
 										<div class="col-lg-5 tab_col">
-												<div class="tab_panel_image"><img src="images/7.jpg" alt=""></div>
-											</div>
+											<div class="tab_panel_image"><img src="images/7.jpg" alt=""></div>
+										</div>
 									</div>
 								</div>
 								<div class="tab_panel">
@@ -517,12 +563,12 @@
 														</li>
 													</ul>
 												</div>
-												 
+
 											</div>
 										</div>
 										<div class="col-lg-5 tab_col">
-												<div class="tab_panel_image"><img src="images/8.jpg" alt=""></div>
-											</div>
+											<div class="tab_panel_image"><img src="images/8.jpg" alt=""></div>
+										</div>
 									</div>
 								</div>
 							</div>
