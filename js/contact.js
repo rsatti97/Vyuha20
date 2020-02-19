@@ -101,11 +101,11 @@ $(document).ready(function()
 
 	function initGoogleMap()
 	{
-		var myLatlng = new google.maps.LatLng(40.760836, -73.910357);
+		var myLatlng = new google.maps.LatLng(17.991656, 83.538517);
     	var mapOptions = 
     	{
     		center: myLatlng,
-	       	zoom: 14,
+	       	zoom: 1000,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			draggable: true,
 			scrollwheel: false,
@@ -134,7 +134,7 @@ $(document).ready(function()
     	}
 
     	// Initialize a map with options
-    	map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    	map = new google.maps.Map(document.getElementById('ma'), mapOptions);
 
 		// Re-center map after window resize
 		google.maps.event.addDomListener(window, 'resize', function()
